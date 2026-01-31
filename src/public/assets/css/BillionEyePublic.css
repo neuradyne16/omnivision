@@ -1,0 +1,614 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main container */
+.billionpublic-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    #1f6fb2 0%,
+     #4fa3e3 45%,
+    #9fd3ff 100% /* bright sky horizon */
+  );
+
+  color: #fff;
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes billionpublic-pulse-users {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* World Globe */
+.billionpublic-globe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle at 40% 40%,
+    rgba(100, 150, 200, 0.1) 0%,
+    transparent 70%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: billionpublic-rotate-globe 60s linear infinite;
+}
+
+.billionpublic-globe::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.billionpublic-globe::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 75%;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 50%;
+}
+
+@keyframes billionpublic-rotate-globe {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* User Network Icons */
+.billionpublic-user-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.billionpublic-user-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: billionpublic-float-user 6s ease-in-out infinite;
+  backdrop-filter: blur(2px);
+}
+
+.billionpublic-user-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes billionpublic-float-user {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-15px) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+/* Animated background particles - tiny dots pattern */
+.billionpublic-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+  animation: billionpublic-float 20s linear infinite;
+  pointer-events: none;
+}
+
+/* Additional layer of smaller dots */
+.billionpublic-container::after {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.14) 2px,
+    transparent 2px
+  );
+  background-size: 60px 60px;
+}
+
+
+@keyframes billionpublic-float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+.billionpublic-wrapper {
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  padding: 40px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+/* Top section with AI core and branding */
+.billionpublic-top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  margin-top: -40px;
+}
+
+/* AI Core with 3D effect */
+.billionpublic-ai-core {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.billionpublic-logo-img {
+  width: 200px;
+  height: 120px;
+  z-index: 10;
+  position: relative;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+  animation: billionpublic-float-logo 3s ease-in-out infinite;
+}
+
+@keyframes billionpublic-float-logo {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Orbital rings */
+.billionpublic-orbital-ring {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: billionpublic-rotate-orbit 8s linear infinite;
+}
+
+.billionpublic-orbital-ring-1 {
+  width: 160px;
+  height: 160px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(70deg);
+  animation-duration: 6s;
+  opacity: 0.6;
+}
+
+.billionpublic-orbital-ring-2 {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(70deg);
+  animation-duration: 8s;
+  opacity: 0.4;
+}
+
+.billionpublic-orbital-ring-3 {
+  width: 240px;
+  height: 240px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(70deg);
+  animation-duration: 10s;
+  opacity: 0.3;
+}
+
+@keyframes billionpublic-rotate-orbit {
+  0% {
+    transform: translate(-50%, -50%) rotateX(70deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateX(70deg) rotateZ(360deg);
+  }
+}
+
+/* Glowing dots on orbits */
+.billionpublic-orbit-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+  animation: billionpublic-orbit-around 6s linear infinite;
+}
+
+.billionpublic-orbit-dot-1 {
+  animation-duration: 6s;
+}
+
+.billionpublic-orbit-dot-2 {
+  animation-duration: 8s;
+  animation-delay: -2s;
+}
+
+@keyframes billionpublic-orbit-around {
+  0% {
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+  }
+  75% {
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Brand */
+.billionpublic-brand {
+  text-align: center;
+}
+
+.billionpublic-title {
+  font-size: 42px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.billionpublic-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 8px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Status Card */
+.billionpublic-status-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 24px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.billionpublic-status-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+}
+
+.billionpublic-status-message {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 16px;
+  min-height: 27px;
+}
+
+
+@keyframes billionpublic-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Action Section */
+.billionpublic-action-section {
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 30px;
+}
+
+.billionpublic-camera-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: rgba(220, 53, 69, 0.95);
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(220, 53, 69, 0.4);
+}
+
+.billionpublic-camera-btn:hover {
+  background: rgba(220, 53, 69, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(220, 53, 69, 0.5);
+}
+
+.billionpublic-camera-btn:active {
+  transform: translateY(0);
+}
+
+.billionpublic-btn-icon {
+  font-size: 24px;
+}
+
+/* Footer */
+.billionpublic-footer {
+  text-align: center;
+  width: 100%;
+  padding: 20px 16px;
+}
+
+.billionpublic-footer-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .billionpublic-wrapper {
+    padding: 30px 20px 16px;
+  }
+
+  .billionpublic-globe {
+    width: 400px;
+    height: 400px;
+  }
+
+  .billionpublic-user-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .billionpublic-user-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .billionpublic-ai-core {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 24px;
+  }
+
+  .billionpublic-logo-img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .billionpublic-orbital-ring-1 {
+    width: 140px;
+    height: 170px;
+  }
+
+  .billionpublic-orbital-ring-2 {
+    width: 170px;
+    height: 200px;
+  }
+
+  .billionpublic-orbital-ring-3 {
+    width: 210px;
+    height: 220px;
+  }
+
+  .billionpublic-title {
+    font-size: 36px;
+  }
+
+  .billionpublic-subtitle {
+    font-size: 14px;
+  }
+
+  .billionpublic-status-card {
+    padding: 20px 16px;
+  }
+
+  .billionpublic-status-message {
+    font-size: 16px;
+  }
+
+  .billionpublic-camera-btn {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+
+  .billionpublic-btn-icon {
+    font-size: 22px;
+  }
+
+  .billionpublic-footer-text {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .billionpublic-globe {
+    width: 320px;
+    height: 320px;
+  }
+
+  .billionpublic-user-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .billionpublic-user-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .billionpublic-title {
+    font-size: 32px;
+  }
+
+  .billionpublic-status-message {
+    font-size: 15px;
+  }
+
+  .billionpublic-camera-btn {
+    font-size: 15px;
+    padding: 12px 18px;
+  }
+
+  .billionpublic-footer-text {
+    font-size: 10px;
+  }
+}
+
+@media (min-height: 800px) {
+  .billionpublic-wrapper {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .billionpublic-top-section {
+    margin-top: 0;
+  }
+
+  .billionpublic-action-section {
+    margin-bottom: 40px;
+  }
+}
+
+
+/* =========================================
+   DOTTED FLOATING BACKGROUND (EXTRACTED)
+   ========================================= */
+
+.dotted-bg {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.18) 1.5px,
+      transparent 1.5px
+    );
+
+  background-size: 36px 36px;
+  animation: dotted-float 22s linear infinite;
+  opacity: 0.75;
+}
+
+/* Depth layer */
+.dotted-bg.depth {
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 2px
+    );
+
+  background-size: 58px 58px;
+  background-position: 18px 18px;
+  animation-duration: 28s;
+  animation-direction: reverse;
+  opacity: 0.55;
+}
+
+/* Animation */
+@keyframes dotted-float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(-60px, -60px) rotate(360deg);
+  }
+}
